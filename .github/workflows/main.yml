@@ -16,3 +16,4 @@ jobs:
         with:
           tool: sonar
           sonar-token: ${{ secrets.SONAR_TOKEN }}
+          pixee-api-url: "https://ntt.pixee.ai"
