@@ -27,8 +27,8 @@ cert = x509.CertificateBuilder().subject_name(csr.subject)
 cert = cert.issuer_name(ca_cert.subject)
 cert = cert.public_key(csr.public_key())
 cert = cert.serial_number(x509.random_serial_number())
-cert = cert.not_valid_before(datetime.datetime.utcnow())
-cert = cert.not_valid_after(datetime.datetime.utcnow() + datetime.timedelta(days=30))
+cert = cert.not_valid_before(datetime.datetime.now(tz=datetime.timezone.utc))
+cert = cert.not_valid_after(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(days=30))
 cert = cert.sign(private_key, hashes.SHA256(), default_backend())
 
 # Write our certificate out to disk.
